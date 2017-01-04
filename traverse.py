@@ -29,6 +29,8 @@ pattern_8 = re.compile(regex_str_IND_3)
         #sub-case1: when data is structured but phone number can be anywhere
         #sub-case2: when there is some garbage data
 
+f = open('output.txt' , 'w')
+
 for files in result:
     file = open(files , 'r')
     for lines in file:
@@ -36,7 +38,6 @@ for files in result:
 
         for p in curr_line:
             if pattern_1.match(p) or pattern_2.match(p) or pattern_3.match(p) or pattern_4.match(p) or pattern_5.match(p) or pattern_6.match(p) or pattern_7.match(p) or pattern_8.match(p):
-                phone_numbers.append(p)
+                f.write(p)
 
-
-print (phone_numbers)
+f.close()
